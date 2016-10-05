@@ -8,11 +8,13 @@
             "email": "golovan15@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
+    "version":"1.0.0",
     "require": {},
     "repositories": [
         {
-            "type": "vcs",
+            "php": "^5.3.3 || ^7.0",
+            "type": "composer",
             "url": "https://github.com/alexandergolovan/google-translate-client"
         }
     ]
