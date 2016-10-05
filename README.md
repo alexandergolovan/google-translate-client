@@ -65,3 +65,4 @@ $translateClient->setSourceLanguage('ru')->setTargetLanguage('en')->translate(['
 Supported languages are listed in [Google API docs](https://cloud.google.com/translate/v2/using_rest#language-params).
 
 
+# google-translate-client

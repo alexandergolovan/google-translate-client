@@ -1,0 +1,19 @@
+{
+    "name": "golovw/google-translate-client",
+    "description": "Simple google translate client",
+    "type": "library",
+    "authors": [
+        {
+            "name": "sasha.g",
+            "email": "golovan15@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/alexandergolovan/google-translate-client"
+        }
+    ]
+}
