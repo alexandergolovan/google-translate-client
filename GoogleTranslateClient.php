@@ -1,12 +1,14 @@
 <?php
 
+namespace Hotels24\ApiClient\Translator;
+
 class GoogleTranslateClient {
 
     static $GOOGLE_API_URL = "https://www.googleapis.com/language/translate/v2?key=%s&source=%s&target=%s";
 
     const LANGUAGE_ENGLISH      = "en";
     const LANGUAGE_RUSSIAN      = "ru";
-    const LANGUAGE_UKRAINIAN    = "ua";
+    const LANGUAGE_UKRAINIAN    = "uk";
 
     private $apiKey;
     private $sourceLanguage;
@@ -45,7 +47,7 @@ class GoogleTranslateClient {
 
             $url = sprintf(self::$GOOGLE_API_URL, $this->apiKey, $this->sourceLanguage, $this->targetLanguage);
             $url .= $parameters;
-            
+
             $handle = curl_init($url);
             curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($handle);
@@ -54,9 +56,18 @@ class GoogleTranslateClient {
             curl_close($handle);
 
             if ($responseCode != 200) {
+                print_r($response);
                 return false;
             } else {
-                return $responseDecoded['data']['translations'];
+                $result = [];
+
+                if ($responseDecoded['data']['translations'] && count($responseDecoded['data']['translations'])) {
+                    foreach ($responseDecoded['data']['translations'] as $translatedText) {
+                        $result [] = $translatedText['translatedText'];
+                    }
+                }
+
+                return $result;
             }
         }
 
